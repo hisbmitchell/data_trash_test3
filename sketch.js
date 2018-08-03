@@ -69,8 +69,7 @@ function preload() {
 function mousePressed() {
   
   
-    var fs = true;
-    fullscreen(fs);
+   
   // if (bool === true) {
   //   manImg = manImg1;
     
@@ -106,13 +105,13 @@ function mousePressed() {
 //}
 
 function keyPressed(){
-  if (keyCode === ESCAPE){
-  fullscreen(!true);}
+ 
+  
   
   
   if (keyCode === ENTER) {
         var fs = true;
-    fullscreen(fs);
+    
      errorMessage += 1;
     println (errorMessage);
     
