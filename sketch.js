@@ -31,7 +31,7 @@ function setup() {
   
   frameRate(15);
    manImg = manImg2
-   //bgVideo.size(bgVideo.width, bgVideo.height);
+  
    
  
 }
@@ -145,6 +145,7 @@ function draw() {
    imageMode(CENTER);
   
   background('#0d02eb');
+  text('width' + windowWidth + 'height' +  windowHeight, 300, 90);
    fill(255);
     noStroke();
   textSize(18);
@@ -231,14 +232,14 @@ function draw() {
     image(bgVideo, width / 2, height / 2);
     
   }
-  if (errorMessage == 1){
+  if (errorMessage >= 1){
     image(errorImage, windowWidth/2, windowHeight/2);
-  } else if (errorMessage == 2) {
-    image(errorImage2, windowWidth/2, windowHeight/2);
-  }else if (errorMessage == 3) {
-    image(errorImage3, windowWidth/2, windowHeight/2);
-    }else if (errorMessage == 4) {
-    image(errorImage4, windowWidth/2, windowHeight/2);
+  } if (errorMessage >= 2) {
+    image(errorImage2, windowWidth*0.3, windowHeight*0.3);
+  }if (errorMessage >= 3) {
+    image(errorImage3, windowWidth*0.2, windowHeight*0.6);
+    }if (errorMessage >= 4) {
+    image(errorImage4, windowWidth*0.7, windowHeight*0.7);
       
     }if (errorMessage >= 5) {
     //background(0);
@@ -248,12 +249,14 @@ function draw() {
     
     }if (errorMessage >= 6) {
     //background(0);
-    bgVideo.play();
+    //bgVideo.play();
+    //bgVideo.size(bgVideo.width*0.2, bgVideo.height*0.2);
     image(bgVideo, width * 0.7, height * 0.7);
     
 }if (errorMessage >= 7) {
     //background(0);
-    bgVideo.play();
+    //bgVideo.play();
+    //bgVideo.size(bgVideo.width*0.4, bgVideo.height*0.4);
     image(bgVideo, width * 0.3, height * 0.5);}
   
     
