@@ -19,9 +19,13 @@ var errorImage3;
 var errorImage4;
 var fontLucida;
 
+
 function setup() {
   createCanvas(windowWidth, windowHeight);
   background('#0d02eb');
+  
+  
+  
  
  
   
@@ -140,22 +144,84 @@ function keyPressed(){
 function draw() {
   
    imageMode(CENTER);
+  
   background('#0d02eb');
    fill(255);
+    noStroke();
   textSize(18);
   textStyle();
   textFont(fontLucida);
   var dataHeight = 10;
   
-  for (i = 0; i < 40; i ++) {
+  
+  var millisecond = millis();
+  var newTime = 1000;
+  text(millisecond, windowWidth - 250, 50);
+  var timePassed = millisecond;
+  //text (timePassed, windowWidth - 400, windowHeight - 200);
+  
+  for (i = 0; i < 50; i ++) {
+    
+    if (timePassed >= newTime ){
+    //text ('MATCH!', windowWidth - 600, windowHeight - 200)
     text('DATATRASH',90,dataHeight);
     dataHeight += 20;
-    i +=1;
-  }
+    
+      newTime += 50;
+      i +=1;
+      
+      
+      
+      
+      }
+      
+      
+    
+    
+    }
+    if (timePassed >= 2500) {
+        text('Unknown error__________________________//', 90, dataHeight + 30);
+        
+        newTime += 50
+        var clickCol = 255;
+        var fillBool = true;
+        
+         for (i = 0; i < 30; i ++) {
+    
+          if (timePassed >= newTime ){
+            
+             if (fillBool === true) {
+               //println("THERE");
+               fill(255);
+               text('Click or press enter to continue', 90, dataHeight + 50 );
+               //clickCol = '#0d02eb';
+               fillBool = false;
+              } else {
+                //println("GONE");
+                fill('#0d02eb');
+                rect(90, dataHeight + 32, 400, 30);
+                fillBool = true;
+                }
+            
+          //fill(clickCol);
+          //text('Click or press enter', 90, dataHeight + 50 );
+          
+          
+          
+          clickCol = '#0d02eb';
+    
+          newTime += 200;
+          i +=1;
+      
+      
+          }
+      
+      }
   
-  text('Unknown error__________________________//', 90, dataHeight + 30);
-  textSize(18);
-  text('Click or press enter', 90, dataHeight + 60);
+        
+   }
+  
+  
   //createCanvas(windowWidth, windowHeight);
   //imageMode(CENTER);
   //background('#0d02eb');
