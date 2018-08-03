@@ -14,6 +14,10 @@ var bgImage;
 var bgVideo;
 var pressEnter = 0;
 var errorImage;
+var errorImage2;
+var errorImage3;
+var errorImage4;
+
 
 
 function preload() {
@@ -24,7 +28,10 @@ function preload() {
   
   bgImage = loadImage('assets/deathscreen3.jpg');
   bgVideo = createVideo('assets/bgVideo2.mov');
-  errorImage = loadImage('assets/error4.jpg');
+  errorImage = loadImage('assets/popup1.jpg');
+  errorImage2 = loadImage('assets/MSG2.png');
+  errorImage3 = loadImage('assets/popup3.jpg');
+  errorImage4 = loadImage('assets/popup4.jpg');
   
 
 //   grow = createVideo('assets/zoom_1.mp4');
@@ -41,36 +48,45 @@ function setup() {
   
   frameRate(15);
    manImg = manImg2
-   bgVideo.size(windowHeight*2, 300);
+   //bgVideo.size(bgVideo.width, bgVideo.height);
    
  
 }
 
 function mousePressed() {
-  if (bool === true) {
-    manImg = manImg1;
+  // if (bool === true) {
+  //   manImg = manImg1;
     
-    errorMessage = 1;
     
-    image(errorImage, windowWidth/2, windowHeight/2);
     
+    // if (errorMessage == 1){
+    
+    // image(errorImage, windowWidth/2, windowHeight/2);
+    
+    // } else if (errorMessage == 2){
+      
+    //   image(errorImage2, windowWidth/2, windowHeight/2);
+    // }
+    
+    errorMessage += 1;
+    println (errorMessage);
     
 
-    bool = false;
+   // bool = false;
     
     println("cool!");
-    
-  } else {
-    println("notcool...");
-    
-    manImg = manImg2;
-    
-    errorMessage = 0;
-
-    bool = true;
   }
+  // } else {
+  //   println("notcool...");
+    
+  //   manImg = manImg2;
+    
+   
 
-}
+  //   bool = true;
+  // }
+
+//}
 
 function keyPressed(){
   if (keyCode === ENTER) {
@@ -112,10 +128,23 @@ function draw() {
     
   }
   if (errorMessage == 1){
-    image(errorImage, windowWidth/2, windowHeight/2  );
-  } else {
+    image(errorImage, windowWidth/2, windowHeight/2);
+  } else if (errorMessage == 2) {
+    image(errorImage2, windowWidth/2, windowHeight/2);
+  }else if (errorMessage == 3) {
+    image(errorImage3, windowWidth/2, windowHeight/2);
+    }else if (errorMessage == 4) {
+    image(errorImage4, windowWidth/2, windowHeight/2);
+      
+    }if (errorMessage >= 5) {
+    //background(0);
+    bgVideo.play();
+    image(bgVideo, width * 0.4, height * 0.4);
     
-  }
+    }if (errorMessage >= 6) {
+    //background(0);
+    bgVideo.play();
+    image(bgVideo, width * 0.7, height * 0.7);}
   
     
      function windowResized(){
