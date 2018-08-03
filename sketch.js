@@ -42,10 +42,10 @@ function preload() {
   
   bgImage = loadImage('assets/deathscreen3.jpg');
   bgVideo = createVideo('assets/bgVideo2.mov');
-  errorImage = loadImage('assets/popup1.jpg');
-  errorImage2 = loadImage('assets/MSG2.png');
-  errorImage3 = loadImage('assets/popup3.jpg');
-  errorImage4 = loadImage('assets/popup4.jpg');
+  errorImage = loadImage('assets/POP1.jpg');
+  errorImage2 = loadImage('assets/POP2.jpg');
+  errorImage3 = loadImage('assets/POP3.jpg');
+  errorImage4 = loadImage('assets/POP4.jpg');
   
   fontLucida = loadFont('assets/Lucida_Console_Regular.ttf');
   
@@ -177,13 +177,19 @@ function draw() {
       
     }if (errorMessage >= 5) {
     //background(0);
+    
     bgVideo.play();
     image(bgVideo, width * 0.4, height * 0.4);
     
     }if (errorMessage >= 6) {
     //background(0);
     bgVideo.play();
-    image(bgVideo, width * 0.7, height * 0.7);}
+    image(bgVideo, width * 0.7, height * 0.7);
+    
+}if (errorMessage >= 7) {
+    //background(0);
+    bgVideo.play();
+    image(bgVideo, width * 0.3, height * 0.5);}
   
     
     
