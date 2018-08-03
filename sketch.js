@@ -22,8 +22,7 @@ var fontLucida;
 function setup() {
   createCanvas(windowWidth, windowHeight);
   background('#0d02eb');
-  var fs = true;
-  fullscreen(fs)
+ 
  
   
   frameRate(15);
