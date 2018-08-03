@@ -19,6 +19,20 @@ var errorImage3;
 var errorImage4;
 var fontLucida;
 
+function setup() {
+  createCanvas(windowWidth, windowHeight);
+  background('#0d02eb');
+  var fs = true;
+  fullscreen(fs)
+ 
+  
+  frameRate(15);
+   manImg = manImg2
+   //bgVideo.size(bgVideo.width, bgVideo.height);
+   
+ 
+}
+
 
 
 function preload() {
@@ -47,17 +61,7 @@ function preload() {
   
 }
 
-function setup() {
-  createCanvas(windowWidth, windowHeight);
-  background('#0d02eb');
- 
-  
-  frameRate(15);
-   manImg = manImg2
-   //bgVideo.size(bgVideo.width, bgVideo.height);
-   
- 
-}
+
 
 function mousePressed() {
   
@@ -104,6 +108,10 @@ function keyPressed(){
   
   
   if (keyCode === ENTER) {
+        var fs = true;
+    fullscreen(fs);
+     errorMessage += 1;
+    println (errorMessage);
     
      if (bool2 === true) {
    // pressEnter = 1;
@@ -147,6 +155,7 @@ function draw() {
   }
   
   text('Unknown error__________________________//', 90, dataHeight + 30);
+  textSize(18);
   text('Click or press enter', 90, dataHeight + 60);
   //createCanvas(windowWidth, windowHeight);
   //imageMode(CENTER);
