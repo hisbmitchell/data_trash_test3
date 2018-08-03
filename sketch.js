@@ -18,6 +18,8 @@ var errorImage2;
 var errorImage3;
 var errorImage4;
 var fontLucida;
+var spacing;
+var trashNumber;
 
 
 function setup() {
@@ -149,14 +151,18 @@ function draw() {
    fill(255);
     noStroke();
   if (windowWidth < 1000){
-    textSize(36);
+    textSize(24);
+    spacing = 30;
+    trashNumber = 20;
   } else {
     textSize(18);
+    spacing = 20;
+    trashNumber = 50;
   }
   
   textStyle();
   textFont(fontLucida);
-  var dataHeight = 10;
+  var dataHeight = 0;
   
   
   var millisecond = millis();
@@ -165,27 +171,19 @@ function draw() {
   var timePassed = millisecond;
   //text (timePassed, windowWidth - 400, windowHeight - 200);
   
-  for (i = 0; i < 50; i ++) {
+  for (i = 0; i < trashNumber; i ++) {
     
     if (timePassed >= newTime ){
     //text ('MATCH!', windowWidth - 600, windowHeight - 200)
-    text('DATATRASH',90,dataHeight);
-    dataHeight += 20;
+    text('DATATRASH',windowWidth * 0.1 ,dataHeight);
+    dataHeight += spacing;
     
       newTime += 50;
       i +=1;
-      
-      
-      
-      
       }
-      
-      
-    
-    
     }
     if (timePassed >= 2500) {
-        text('Unknown error__________________________//', 90, dataHeight + 30);
+        text('Unknown error__________________________//', windowWidth * 0.1, dataHeight + spacing);
         
         newTime += 50
         var clickCol = 255;
@@ -194,17 +192,19 @@ function draw() {
          for (i = 0; i < 30; i ++) {
     
           if (timePassed >= newTime ){
-            
+            text('Click or press enter to continue', windowWidth * 0.1, dataHeight + spacing + 30 );
              if (fillBool === true) {
                //println("THERE");
-               fill(255);
-               text('Click or press enter to continue', 90, dataHeight + 50 );
+               
+               fill('#0d02eb');
+               
                //clickCol = '#0d02eb';
                fillBool = false;
               } else {
                 //println("GONE");
-                fill('#0d02eb');
-                rect(90, dataHeight + 32, 400, 30);
+                fill(255);
+                
+                //rect(90, dataHeight + spacing, 400, 30);
                 fillBool = true;
                 }
             
@@ -240,9 +240,9 @@ function draw() {
   if (errorMessage >= 1){
     image(errorImage, windowWidth/2, windowHeight/2);
   } if (errorMessage >= 2) {
-    image(errorImage2, windowWidth*0.3, windowHeight*0.3);
+    image(errorImage2, windowWidth*0.45, windowHeight*0.45);
   }if (errorMessage >= 3) {
-    image(errorImage3, windowWidth*0.2, windowHeight*0.6);
+    image(errorImage3, windowWidth*0.3, windowHeight*0.6);
     }if (errorMessage >= 4) {
     image(errorImage4, windowWidth*0.7, windowHeight*0.7);
       
