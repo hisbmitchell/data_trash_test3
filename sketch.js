@@ -148,7 +148,12 @@ function draw() {
   text('width' + windowWidth + 'height' +  windowHeight, 300, 90);
    fill(255);
     noStroke();
-  textSize(18);
+  if (windowWidth < 1000){
+    textSize(36);
+  } else {
+    textSize(18);
+  }
+  
   textStyle();
   textFont(fontLucida);
   var dataHeight = 10;
