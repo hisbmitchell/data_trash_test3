@@ -157,7 +157,7 @@ function draw() {
     textSize(32);
     spacing = 30;
     trashNumber = 40;
-    errorRatio = 2;
+    errorRatio = 3;
     
   } else {
     textSize(18);
