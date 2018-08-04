@@ -28,12 +28,6 @@ var errorRatio;
 function setup() {
   createCanvas(windowWidth, windowHeight);
   background('#0d02eb');
-  
-  
-  
- 
- 
-  
   frameRate(15);
    manImg = manImg2
   
@@ -50,11 +44,18 @@ function preload() {
   bg = loadImage('assets/2draw.jpg');
   
   bgImage = loadImage('assets/deathscreen3.jpg');
-  bgVideo = createVideo('assets/bgVideo2.mov');
+  //bgVideo = createVideo('assets/bgVideo2.mov');
   errorImage = loadImage('assets/POP1.jpg');
   errorImage2 = loadImage('assets/POP2.jpg');
   errorImage3 = loadImage('assets/POP3.jpg');
   errorImage4 = loadImage('assets/POP4.jpg');
+  hands = createImg('assets/hand.gif');
+  hands.position(-300, -300);
+  cutting = createImg('assets/cutting.gif');
+  cutting.position(-300, -300);
+  paris = loadImage('assets/paris.jpg');
+  carSlime = loadImage('assets/carSlime.jpg');
+  
   
   fontLucida = loadFont('assets/Lucida_Console_Regular.ttf');
   
@@ -64,8 +65,8 @@ function preload() {
 //   grow.loop();
 //   grow.hide();
   
-  bgVideo.loop();
-  bgVideo.hide();
+  //bgVideo.loop();
+  //bgVideo.hide();
   
 }
 
@@ -246,29 +247,35 @@ function draw() {
   if (errorMessage >= 1){
     image(errorImage, windowWidth/2, windowHeight/2, errorImage.width * errorRatio, errorImage.height * errorRatio);
   } if (errorMessage >= 2) {
-    image(errorImage2, windowWidth*0.45, windowHeight*0.45, errorImage2.width * errorRatio, errorImage2.height * errorRatio);
+    image(errorImage2, windowWidth*0.47, windowHeight*0.45, errorImage2.width * errorRatio, errorImage2.height * errorRatio);
   }if (errorMessage >= 3) {
-    image(errorImage3, windowWidth*0.3, windowHeight*0.6, errorImage3.width * errorRatio, errorImage3.height * errorRatio);
+    image(errorImage3, windowWidth*0.43, windowHeight*0.43, errorImage3.width * errorRatio, errorImage3.height * errorRatio);
     }if (errorMessage >= 4) {
-    image(errorImage4, windowWidth*0.6, windowHeight*0.6, errorImage4.width * errorRatio, errorImage4.height * errorRatio);
+    image(errorImage4, windowWidth*0.53, windowHeight*0.53, errorImage4.width * errorRatio, errorImage4.height * errorRatio);
       
     }if (errorMessage >= 5) {
     //background(0);
     
-    bgVideo.play();
-    image(bgVideo, width * 0.4, height * 0.4);
+    //bgVideo.play();
+    hands.position(width * 0.4, height * 0.4);
     
     }if (errorMessage >= 6) {
     //background(0);
     //bgVideo.play();
     //bgVideo.size(bgVideo.width*0.2, bgVideo.height*0.2);
-    image(bgVideo, width * 0.7, height * 0.7);
+    cutting.position(width * 0.3, height * 0.3);
     
 }if (errorMessage >= 7) {
     //background(0);
     //bgVideo.play();
     //bgVideo.size(bgVideo.width*0.4, bgVideo.height*0.4);
-    image(bgVideo, width * 0.3, height * 0.5);}
+    image(carSlime, width * 0.3, height * 0.5);
+  
+}if (errorMessage >= 8) {
+    //background(0);
+    //bgVideo.play();
+    //bgVideo.size(bgVideo.width*0.4, bgVideo.height*0.4);
+    image(paris, width * 0.5, height * 0.35);}
   
     
     
