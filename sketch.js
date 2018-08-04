@@ -21,6 +21,9 @@ var fontLucida;
 var spacing;
 var trashNumber;
 
+var errorRatio;
+
+
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
@@ -151,13 +154,16 @@ function draw() {
    fill(255);
     noStroke();
   if (windowWidth < 1000){
-    textSize(24);
+    textSize(32);
     spacing = 30;
-    trashNumber = 20;
+    trashNumber = 40;
+    errorRatio = 2;
+    
   } else {
     textSize(18);
     spacing = 20;
     trashNumber = 50;
+    errorRatio = 1;
   }
   
   textStyle();
@@ -238,13 +244,13 @@ function draw() {
     
   }
   if (errorMessage >= 1){
-    image(errorImage, windowWidth/2, windowHeight/2);
+    image(errorImage, windowWidth/2, windowHeight/2, errorImage.width * errorRatio, errorImage.height * errorRatio);
   } if (errorMessage >= 2) {
-    image(errorImage2, windowWidth*0.45, windowHeight*0.45);
+    image(errorImage2, windowWidth*0.45, windowHeight*0.45, errorImage2.width * errorRatio, errorImage2.height * errorRatio);
   }if (errorMessage >= 3) {
-    image(errorImage3, windowWidth*0.3, windowHeight*0.6);
+    image(errorImage3, windowWidth*0.3, windowHeight*0.6, errorImage3.width * errorRatio, errorImage3.height * errorRatio);
     }if (errorMessage >= 4) {
-    image(errorImage4, windowWidth*0.7, windowHeight*0.7);
+    image(errorImage4, windowWidth*0.7, windowHeight*0.7, errorImage4.width * errorRatio, errorImage4.height * errorRatio);
       
     }if (errorMessage >= 5) {
     //background(0);
