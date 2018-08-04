@@ -156,7 +156,7 @@ function draw() {
   if (windowWidth < 1000){
     textSize(32);
     spacing = 30;
-    trashNumber = 40;
+    trashNumber = 65;
     errorRatio = 3;
     
   } else {
