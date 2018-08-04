@@ -250,7 +250,7 @@ function draw() {
   }if (errorMessage >= 3) {
     image(errorImage3, windowWidth*0.3, windowHeight*0.6, errorImage3.width * errorRatio, errorImage3.height * errorRatio);
     }if (errorMessage >= 4) {
-    image(errorImage4, windowWidth*0.7, windowHeight*0.7, errorImage4.width * errorRatio, errorImage4.height * errorRatio);
+    image(errorImage4, windowWidth*0.6, windowHeight*0.6, errorImage4.width * errorRatio, errorImage4.height * errorRatio);
       
     }if (errorMessage >= 5) {
     //background(0);
