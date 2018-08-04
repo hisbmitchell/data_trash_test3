@@ -150,7 +150,7 @@ function draw() {
    imageMode(CENTER);
   
   background('#0d02eb');
-  text('width' + windowWidth + 'height' +  windowHeight, 300, 90);
+  //text('width' + windowWidth + 'height' +  windowHeight, 300, 90);
    fill(255);
     noStroke();
   if (windowWidth < 1000){
