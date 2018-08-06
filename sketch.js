@@ -57,7 +57,7 @@ function preload() {
   errorImage3 = loadImage('assets/POP3.jpg');
   errorImage4 = loadImage('assets/POP4.jpg');
   
-  hands = createImg('assets/hands.gif');
+  hands = createImg('assets/hand.gif');
   hands.position(-300, -300);
   cutting = createImg('assets/cutting.gif');
   cutting.position(-300, -300);
