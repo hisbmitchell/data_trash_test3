@@ -23,6 +23,13 @@ var trashNumber;
 
 var errorRatio;
 
+var hands;
+var cutting;
+var paris;
+var carSlime;
+var  secondRave;
+
+
 
 
 function setup() {
@@ -41,21 +48,32 @@ function preload() {
 
   manImg1 = loadImage('assets/Trash1.gif');
   manImg2 = loadImage('assets/Trash.gif');
-  bg = loadImage('assets/2draw.jpg');
+ // bg = loadImage('assets/2draw.jpg');
   
   bgImage = loadImage('assets/deathscreen3.jpg');
-  //bgVideo = createVideo('assets/bgVideo2.mov');
+  bgVideo = createVideo('assets/bgVideo2.mov');
   errorImage = loadImage('assets/POP1.jpg');
   errorImage2 = loadImage('assets/POP2.jpg');
   errorImage3 = loadImage('assets/POP3.jpg');
   errorImage4 = loadImage('assets/POP4.jpg');
-  hands = createImg('assets/hand.gif');
+  
+  hands = createImg('assets/hands.gif');
   hands.position(-300, -300);
   cutting = createImg('assets/cutting.gif');
   cutting.position(-300, -300);
-  paris = loadImage('assets/paris.jpg');
-  carSlime = loadImage('assets/carSlime.jpg');
+  carSlime = createImg('assets/carSlime.jpg');
+  carSlime.position(-600, -600);
+  paris = createImg('assets/paris.jpg');
+  paris.position(-600, -600);
   
+  secondRave = createVideo('assets/secondRave.mp4');
+  secondRave.loop();
+  secondRave.position(-600, -600);
+  punchBag = createVideo('assets/punchBag.mp4');
+  punchBag.loop();
+  punchBag.position(-600, -600);
+  //secondRave.hide();
+ 
   
   fontLucida = loadFont('assets/Lucida_Console_Regular.ttf');
   
@@ -65,65 +83,29 @@ function preload() {
 //   grow.loop();
 //   grow.hide();
   
-  //bgVideo.loop();
-  //bgVideo.hide();
+  bgVideo.loop();
+  bgVideo.hide();
   
 }
 
 
 
 function mousePressed() {
-  
-  
-   
-  // if (bool === true) {
-  //   manImg = manImg1;
-    
-    
-    
-    // if (errorMessage == 1){
-    
-    // image(errorImage, windowWidth/2, windowHeight/2);
-    
-    // } else if (errorMessage == 2){
-      
-    //   image(errorImage2, windowWidth/2, windowHeight/2);
-    // }
-    
+
     errorMessage += 1;
     println (errorMessage);
-    
 
-   // bool = false;
-    
     println("cool!");
   }
-  // } else {
-  //   println("notcool...");
-    
-  //   manImg = manImg2;
-    
-   
-
-  //   bool = true;
-  // }
-
-//}
 
 function keyPressed(){
- 
-  
-  
-  
-  if (keyCode === ENTER) {
+ if (keyCode === ENTER) {
         var fs = true;
     
      errorMessage += 1;
     println (errorMessage);
     
      if (bool2 === true) {
-   // pressEnter = 1;
-
     bool2 = false;
     
     println("YES_VIDEO");
@@ -146,10 +128,10 @@ function keyPressed(){
       }
 }
 
+//***-------------DRAW FUNCTION--------------*** START
+
 function draw() {
-  
-   imageMode(CENTER);
-  
+  imageMode(CENTER);
   background('#0d02eb');
   //text('width' + windowWidth + 'height' +  windowHeight, 300, 90);
    fill(255);
@@ -166,12 +148,9 @@ function draw() {
     trashNumber = 50;
     errorRatio = 1;
   }
-  
   textStyle();
   textFont(fontLucida);
   var dataHeight = 0;
-  
-  
   var millisecond = millis();
   var newTime = 1000;
   text(millisecond, windowWidth - 250, 50);
@@ -191,53 +170,31 @@ function draw() {
     }
     if (timePassed >= 2500) {
         text('Unknown error__________________________//', windowWidth * 0.1, dataHeight + spacing);
-        
         newTime += 50
         var clickCol = 255;
         var fillBool = true;
-        
-         for (i = 0; i < 30; i ++) {
-    
-          if (timePassed >= newTime ){
+        for (i = 0; i < 30; i ++) {
+        if (timePassed >= newTime ){
             text('Click or press enter to continue', windowWidth * 0.1, dataHeight + spacing + 30 );
              if (fillBool === true) {
-               //println("THERE");
-               
                fill('#0d02eb');
-               
-               //clickCol = '#0d02eb';
                fillBool = false;
               } else {
                 //println("GONE");
                 fill(255);
-                
-                //rect(90, dataHeight + spacing, 400, 30);
                 fillBool = true;
                 }
-            
-          //fill(clickCol);
-          //text('Click or press enter', 90, dataHeight + 50 );
-          
-          
-          
+                
           clickCol = '#0d02eb';
-    
           newTime += 200;
           i +=1;
-      
-      
           }
-      
       }
-  
-        
    }
+   
+
+
   
-  
-  //createCanvas(windowWidth, windowHeight);
-  //imageMode(CENTER);
-  //background('#0d02eb');
-  //image(bgImage, windowWidth/2, windowHeight/2, windowWidth, windowHeight  );
   if (pressEnter == 1){
     background(0);
     bgVideo.play();
@@ -254,58 +211,37 @@ function draw() {
     image(errorImage4, windowWidth*0.53, windowHeight*0.53, errorImage4.width * errorRatio, errorImage4.height * errorRatio);
       
     }if (errorMessage >= 5) {
-    //background(0);
-    
-    //bgVideo.play();
-    hands.position(width * 0.4, height * 0.4);
+     
+      hands.position(width * 0.4, height * 0.4);
     
     }if (errorMessage >= 6) {
-    //background(0);
-    //bgVideo.play();
-    //bgVideo.size(bgVideo.width*0.2, bgVideo.height*0.2);
-    cutting.position(width * 0.3, height * 0.3);
+      
+      cutting.position(width * 0.3, height * 0.3);
     
-}if (errorMessage >= 7) {
-    //background(0);
-    //bgVideo.play();
-    //bgVideo.size(bgVideo.width*0.4, bgVideo.height*0.4);
-    image(carSlime, width * 0.3, height * 0.5);
+    }if (errorMessage >= 7) {
+     
+      carSlime.position(width * 0.25, height * 0.15);
   
-}if (errorMessage >= 8) {
-    //background(0);
-    //bgVideo.play();
-    //bgVideo.size(bgVideo.width*0.4, bgVideo.height*0.4);
-    image(paris, width * 0.5, height * 0.35);}
-  
+    }if (errorMessage >= 8) {
+      
+      paris.position(width * 0.3, height * 0.25);
+      
+    }if (errorMessage >= 9) {
+      secondRave.play();
+      secondRave.position( width * 0.2, height * 0.2);
+      
+    }
     
-    
-    
-    
-    
-  
-  
- 
-  //println ('mousex:'+mouseX+'mouseY:'+mouseY);
-  
+    if (errorMessage >= 10) {
+      secondRave.pause();
+      punchBag.play();
+      punchBag.position( width * 0.3, height * 0.4);
+      
+    }
 
   var xPos = mouseX;
   var yPos = mouseY;
   investMen.push(new investMan(xPos, yPos, manImg));
-
-
-
-
-  // if (mouseX > 900 && mouseY > 100) {
-  //   //image(grow, width / 2, height / 2);
-  //   //grow.play();
-  // } else if (mouseX < 100 && mouseY > 100) {
-  //   //background(255);
-  //   //grow.pause();
-    
-  //   image(bgImage, windowWidth/2, windowHeight/2,windowWidth, windowHeight  );
-  // }
-  
-  
 
 for (i = 0; i < investMen.length; i++) {
     
@@ -335,12 +271,8 @@ function investMan(x, y, img) {
   this.display = function() {
     imageMode(CENTER)
     image(this.img, this.x, this.y);
-     
     
   }
-  
- 
-
 }
 
  function windowResized(){
