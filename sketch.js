@@ -45,8 +45,10 @@ var newVid;
 var millisecond;
 var preDone;
 
+var soundPlaying = false;
+ 
 function preload(){
-  //sound = loadSound('assets/DATATRASH.mp3');
+  
     //manImg1 = loadImage('assets/Trash1.gif');
   manImg2 = loadImage('assets/Trash.gif');
  // bg = loadImage('assets/2draw.jpg');
@@ -63,7 +65,10 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
   background('#0d02eb');
   frameRate(15);
+  sound = loadSound('assets/datatrash_small2.m4a');
    manImg = manImg2
+   
+   
    
    //sound.play();
    
@@ -189,6 +194,13 @@ function videoCreate(element, x, y) {
 
 
 function mousePressed() {
+  
+ 
+  
+  if (soundPlaying === false){
+    sound.play();
+    soundPlaying = true;
+  }
   
   if (preDone === true & millisecond >= 2000) {
 
@@ -366,7 +378,9 @@ function draw() {
     
   
   
+  
   if (errorMessage >= 1){
+    
     //console.log('LOG!!!');
     image(errorImage, windowWidth/2, windowHeight/2, errorImage.width * errorRatio, errorImage.height * errorRatio);
   } if (errorMessage >= 2) {
@@ -375,6 +389,7 @@ function draw() {
     image(errorImage3, windowWidth*0.53, windowHeight*0.33, errorImage3.width * errorRatio, errorImage3.height * errorRatio);
     
     }if (errorMessage == 4) {
+      
       currentErrorNum = 4;
       images[imageNum].changePos(windowWidth*0.53, windowHeight*0.53);
     
