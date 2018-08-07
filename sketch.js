@@ -27,9 +27,19 @@ var hands;
 var cutting;
 var paris;
 var carSlime;
-var  secondRave;
+var secondRave;
 
+var imageFile = ['assets/key.png', 'assets/science.png', 'assets/germs.png', 'assets/blueShit.gif', 'assets/gloves.gif', 'assets/goo.gif', 'assets/rotating.gif', 'assets/shinyRock.gif', 'assets/stickyPpl.gif', 'assets/hand.gif', 'assets/cutting.gif', 'assets/carSlime.jpg', 'assets/paris.jpg', 'assets/parisdj.jpg', 'assets/mowing.png'];
+var randImageFile;
+var imageNum = 0;
+var images = [];
+var imageNum;
+var imageCurrent;
 
+var randWidth;
+var randHeight;
+
+var currentErrorNum;
 
 
 function setup() {
@@ -38,11 +48,7 @@ function setup() {
   frameRate(15);
    manImg = manImg2
   
-   
- 
 }
-
-
 
 function preload() {
 
@@ -51,44 +57,83 @@ function preload() {
  // bg = loadImage('assets/2draw.jpg');
   
   bgImage = loadImage('assets/deathscreen3.jpg');
-  bgVideo = createVideo('assets/bgVideo2.mov');
-  errorImage = loadImage('assets/POP1.jpg');
-  errorImage2 = loadImage('assets/POP2.jpg');
-  errorImage3 = loadImage('assets/POP3.jpg');
-  errorImage4 = loadImage('assets/POP4.jpg');
+  //bgVideo = createVideo('assets/bgVideo2.mov');
+  errorImage = loadImage('assets/finalError1.png');
+  errorImage2 = loadImage('assets/finalError2.png');
+  errorImage3 = loadImage('assets/finalError3.png');
+  //errorImage4 = loadImage('assets/POP4.jpg');
+  // errorImage.position(-600, -600);
+  // errorImage2.position(-600, -600);
+  // errorImage3.position(-600, -600);
+  // errorImage4.position(-600, -600);
   
-  hands = createImg('assets/hand.gif');
-  hands.position(-300, -300);
-  cutting = createImg('assets/cutting.gif');
-  cutting.position(-300, -300);
-  carSlime = createImg('assets/carSlime.jpg');
-  carSlime.position(-600, -600);
-  paris = createImg('assets/paris.jpg');
-  paris.position(-600, -600);
+ 
   
-  secondRave = createVideo('assets/secondRave.mp4');
-  secondRave.loop();
-  secondRave.position(-600, -600);
-  punchBag = createVideo('assets/punchBag.mp4');
-  punchBag.loop();
-  punchBag.position(-600, -600);
-  //secondRave.hide();
+  
+  for (var i=0; i<imageFile.length*3; i++){
+  
+    // image1 = new imageCreate();
+    // image1.position(100,100);
+    //var imagePos = -600;
+    randImageFile = int(random(imageFile.length));
+    println(randImageFile);
+    var createdImage = createImg(imageFile[randImageFile]);
+    
+    var newImg = new imageCreate(createdImage, -600, -600);
+    //createImg(imageFile[randImageFile]);
+    
+    images.push(newImg);
+    // images[1].position(100, 100);    
+    // imageCurrent.position(50, 50);
+    
+    
+    
+  }
+  
+  images.push(errorImage);
+  images.push(errorImage2);
+  images.push(errorImage3);
+  
+  
+  //hands = createImg('assets/hand.gif');
+ // hands.position(-300, -300);
+  // cutting = createImg('assets/cutting.gif');
+  // cutting.position(-300, -300);
+  // carSlime = createImg('assets/carSlime.jpg');
+  // carSlime.position(-600, -600);
+  // paris = createImg('assets/paris.jpg');
+  // paris.position(-600, -600);
+  
+  // secondRave = createVideo('assets/secondRave.mp4');
+  // secondRave.loop();
+  // secondRave.position(-600, -600);
+  // punchBag = createVideo('assets/punchBag.mp4');
+  // punchBag.loop();
+  // punchBag.position(-600, -600);
+  // //secondRave.hide();
  
   
   fontLucida = loadFont('assets/Lucida_Console_Regular.ttf');
-  
-
-//   grow = createVideo('assets/zoom_1.mp4');
-
-//   grow.loop();
-//   grow.hide();
-  
-  bgVideo.loop();
-  bgVideo.hide();
-  
 }
 
+function imageCreate(element, x, y) {
+  
+  
+  
+  element.position(x,y);
+  
+   this.changePos = function(randX, randY) {
+    x = randX; //windowWidth * random(1);
+    y = randY; //50;
+    //windowWidth * random(1), windowHeight * random(1)
+    element.position(x,y);
+   }
+    
+   
 
+  
+  //this.y = -600;
+}
 
 function mousePressed() {
 
@@ -96,6 +141,22 @@ function mousePressed() {
     println (errorMessage);
 
     println("cool!");
+    
+    
+    
+    imageNum += 1;
+    if (imageNum == images.length){
+      imageNum = 0;
+    }
+    
+    if (errorMessage == 15) {
+      errorMessage = 0;
+    }
+    
+    currentErrorNum +=1;
+    
+    randWidth = random(-0.1, 0.8);
+    randHeight = random(-0.1, 0.8);
   }
 
 function keyPressed(){
@@ -104,6 +165,21 @@ function keyPressed(){
     
      errorMessage += 1;
     println (errorMessage);
+    
+   
+     imageNum += 1;
+    if (imageNum == images.length){
+      imageNum = 0;
+    }
+    
+    if (errorMessage == 15) {
+      errorMessage = 0;
+    }
+    
+    currentErrorNum +=1;
+    
+    randWidth = random(0.1, 0.8);
+    randHeight = random(0.1, 0.8);
     
      if (bool2 === true) {
     bool2 = false;
@@ -119,10 +195,7 @@ function keyPressed(){
   }
 }
     
-  
-    
     for (i = 0; i <= investMen.length; i++) {
-    
     investMen[i].clear();
     
       }
@@ -152,9 +225,10 @@ function draw() {
   textFont(fontLucida);
   var dataHeight = 0;
   var millisecond = millis();
-  var newTime = 1000;
+  
   text(millisecond, windowWidth - 250, 50);
   var timePassed = millisecond;
+  var newTime = 3000;
   //text (timePassed, windowWidth - 400, windowHeight - 200);
   
   for (i = 0; i < trashNumber; i ++) {
@@ -192,52 +266,61 @@ function draw() {
       }
    }
    
-
-
-  
-  if (pressEnter == 1){
-    background(0);
-    bgVideo.play();
-    image(bgVideo, width / 2, height / 2);
+  // if (pressEnter == 1){
+  //   background(0);
+  //   bgVideo.play();
+  //   image(bgVideo, width / 2, height / 2);
     
-  }
+  // }
   if (errorMessage >= 1){
     image(errorImage, windowWidth/2, windowHeight/2, errorImage.width * errorRatio, errorImage.height * errorRatio);
   } if (errorMessage >= 2) {
     image(errorImage2, windowWidth*0.47, windowHeight*0.45, errorImage2.width * errorRatio, errorImage2.height * errorRatio);
   }if (errorMessage >= 3) {
     image(errorImage3, windowWidth*0.43, windowHeight*0.43, errorImage3.width * errorRatio, errorImage3.height * errorRatio);
-    }if (errorMessage >= 4) {
-    image(errorImage4, windowWidth*0.53, windowHeight*0.53, errorImage4.width * errorRatio, errorImage4.height * errorRatio);
-      
-    }if (errorMessage >= 5) {
-     
-      hands.position(width * 0.4, height * 0.4);
     
-    }if (errorMessage >= 6) {
-      
-      cutting.position(width * 0.3, height * 0.3);
+    }if (errorMessage == 4) {
+      currentErrorNum = 4;
     
-    }if (errorMessage >= 7) {
+    }if (errorMessage == currentErrorNum) {
+      
+     randX = windowWidth * randWidth;
+     randY = windowHeight * randHeight;
+     images[imageNum].changePos(randX, randY);
+      
+    }
      
-      carSlime.position(width * 0.25, height * 0.15);
+      
+    // }if (errorMessage == 6) {
+      
+    //   randX = windowWidth * randWidth;
+    // randY = windowHeight * randHeight;
+    //   images[imageNum].changePos(randX, randY);
+      
+    
+    // }if (errorMessage == 7) {
+     
+    //   randX = windowWidth * randWidth;
+    // randY = windowHeight * randHeight;
+    //   images[imageNum].changePos(randX, randY);
+      
   
-    }if (errorMessage >= 8) {
+    // }if (errorMessage == 8) {
       
-      paris.position(width * 0.3, height * 0.25);
+    //   paris.position(windowWidth * 0.1, windowHeight * 0.25);
       
-    }if (errorMessage >= 9) {
-      secondRave.play();
-      secondRave.position( width * 0.2, height * 0.2);
+    // }if (errorMessage == 9) {
+    //   secondRave.play();
+    //   secondRave.position( windowWidth * 0.7, windowHeight * 0.1);
       
-    }
+    // }
     
-    if (errorMessage >= 10) {
-      secondRave.pause();
-      punchBag.play();
-      punchBag.position( width * 0.3, height * 0.4);
+    // if (errorMessage >= 10) {
+    //   secondRave.pause();
+    //   punchBag.play();
+    //   punchBag.position( windowWidth * 0.3, height * 0.4);
       
-    }
+    // }
 
   var xPos = mouseX;
   var yPos = mouseY;
