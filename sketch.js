@@ -55,7 +55,7 @@ function preload(){
   
   //bgImage = loadImage('assets/deathscreen3.jpg');
   //bgVideo = createVideo('assets/bgVideo2.mov');
-  errorImage = loadImage('assets/finalError1.png');
+  
   
 }
 
@@ -66,6 +66,8 @@ function setup() {
    manImg = manImg2
    
    sound.play();
+   
+   errorImage = loadImage('assets/finalError1.png');
    
    errorImage2 = loadImage('assets/finalError2.png');
   errorImage3 = loadImage('assets/finalError3.png');
@@ -183,6 +185,8 @@ function videoCreate(element, x, y) {
 
 
 function mousePressed() {
+  
+  if (preDone === true & millisecond >= 2000) {
 
     errorMessage += 1;
     println (errorMessage);
@@ -210,10 +214,11 @@ function mousePressed() {
     randWidth = random(-0.1, 0.8);
     randHeight = random(-0.1, 0.8);
   }
+  }
 
 function keyPressed(){
  if (keyCode === ENTER) {
-        var fs = true;
+       if (preDone === true && millis == 4000) {
     
      errorMessage += 1;
     println (errorMessage);
@@ -249,6 +254,7 @@ function keyPressed(){
 
     bool2 = true;
   }
+       }
 }
     
     for (i = 0; i <= investMen.length; i++) {
