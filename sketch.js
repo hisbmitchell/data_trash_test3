@@ -46,7 +46,7 @@ var millisecond;
 var preDone;
 
 function preload(){
-  sound = loadSound('assets/DATATRASH.mp3');
+  //sound = loadSound('assets/DATATRASH.mp3');
     //manImg1 = loadImage('assets/Trash1.gif');
   manImg2 = loadImage('assets/Trash.gif');
  // bg = loadImage('assets/2draw.jpg');
@@ -65,7 +65,7 @@ function setup() {
   frameRate(15);
    manImg = manImg2
    
-   sound.play();
+   //sound.play();
    
    errorImage = loadImage('assets/finalError1.png');
    
