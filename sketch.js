@@ -42,6 +42,8 @@ var randHeight;
 var currentErrorNum;
 var newVid;
 
+var millisecond;
+
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
@@ -107,6 +109,8 @@ function preload() {
   secondRave = createVideo('assets/secondRave.mp4');
   var newVid = new videoCreate(secondRave, -600, -600);
   images.push(newVid);
+  
+  millisecond = millis();
   
   // images.push(errorImage);
   // images.push(errorImage2);
