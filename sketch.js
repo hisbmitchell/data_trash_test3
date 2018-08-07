@@ -43,10 +43,11 @@ var currentErrorNum;
 var newVid;
 
 var millisecond;
+var preDone;
 
 function preload(){
   sound = loadSound('assets/DATATRASH.mp3');
-    manImg1 = loadImage('assets/Trash1.gif');
+    //manImg1 = loadImage('assets/Trash1.gif');
   manImg2 = loadImage('assets/Trash.gif');
  // bg = loadImage('assets/2draw.jpg');
  
@@ -115,6 +116,8 @@ function setup() {
   //punchBag.loop();
   var newVid2 = new videoCreate(punchBag, -600, -600);
    images.push(newVid2);
+   
+   preDone = true;
   
   
   
@@ -277,7 +280,11 @@ function draw() {
   textStyle();
   textFont(fontLucida);
   var dataHeight = 0;
-  millisecond = millis();
+  if (preDone === true){
+    
+    millisecond = millis();
+    
+  }
   
   //text(millisecond, windowWidth - 250, 50);
   var timePassed = millisecond;
@@ -295,7 +302,7 @@ function draw() {
       i +=1;
       }
     }
-    if (timePassed >= 2500) {
+    if (timePassed >= 1500) {
         text('Unknown error__________________________//', windowWidth * 0.1, dataHeight + spacing);
         newTime += 50
       //   var clickCol = 255;
