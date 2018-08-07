@@ -52,11 +52,10 @@ function preload(){
  
   fontLucida = loadFont('assets/Lucida_Console_Regular.ttf');
   
-  bgImage = loadImage('assets/deathscreen3.jpg');
+  //bgImage = loadImage('assets/deathscreen3.jpg');
   //bgVideo = createVideo('assets/bgVideo2.mov');
   errorImage = loadImage('assets/finalError1.png');
-  errorImage2 = loadImage('assets/finalError2.png');
-  errorImage3 = loadImage('assets/finalError3.png');
+  
 }
 
 function setup() {
@@ -66,6 +65,9 @@ function setup() {
    manImg = manImg2
    
    sound.play();
+   
+   errorImage2 = loadImage('assets/finalError2.png');
+  errorImage3 = loadImage('assets/finalError3.png');
    
    
   //errorImage4 = loadImage('assets/POP4.jpg');
