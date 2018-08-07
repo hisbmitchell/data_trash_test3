@@ -70,7 +70,7 @@ function preload() {
  
   
   
-  for (var i=0; i<imageFile.length*3; i++){
+  for (var i=0; i<imageFile.length*2; i++){
   
     // image1 = new imageCreate();
     // image1.position(100,100);
