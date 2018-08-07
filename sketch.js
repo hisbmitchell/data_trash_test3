@@ -29,7 +29,7 @@ var paris;
 var carSlime;
 var secondRave;
 
-var imageFile = ['assets/finalError1.png','assets/finalError2.png', 'assets/finalError3.png', 'assets/key.png', 'assets/science.png', 'assets/germs.png', 'assets/blueShit.gif', 'assets/gloves.gif', 'assets/goo.gif', 'assets/rotating.gif', 'assets/shinyRock.gif', 'assets/stickyPpl.gif', 'assets/hand.gif', 'assets/cutting.gif', 'assets/carSlime.jpg', 'assets/paris.jpg', 'assets/parisdj.jpg', 'assets/mowing.png'];
+var imageFile = ['assets/finalError1.png', 'assets/key.png', 'assets/science.png', 'assets/germs.png', 'assets/blueShit.gif', 'assets/gloves.gif', 'assets/goo.gif', 'assets/rotating.gif', 'assets/shinyRock.gif', 'assets/stickyPpl.gif', 'assets/hand.gif', 'assets/cutting.gif', 'assets/carSlime.jpg', 'assets/paris.jpg', 'assets/parisdj.jpg', 'assets/mowing.png'];
 var randImageFile;
 var imageNum = 0;
 var images = [];
