@@ -81,9 +81,9 @@ function setup() {
     
   //secondRave.loop();
   //secondRave.position(-600, -600);
-  punchBag = createVideo('assets/punchBag.mp4');
-  //punchBag.loop();
-  punchBag.position(-600, -600);
+  // punchBag = createVideo('assets/punchBag.mp4');
+  // //punchBag.loop();
+  // punchBag.position(-600, -600);
   //secondRave.hide();
  
   
@@ -118,6 +118,10 @@ function setup() {
   //punchBag.loop();
   var newVid2 = new videoCreate(punchBag, -600, -600);
    images.push(newVid2);
+    husky = createVideo('assets/husky.mov');
+  //punchBag.loop();
+  var newVid3 = new videoCreate(husky, -600, -600);
+   images.push(newVid3);
    
    preDone = true;
   
@@ -379,7 +383,27 @@ function draw() {
      randX = windowWidth * randWidth;
      randY = windowHeight * randHeight;
      images[imageNum].changePos(randX, randY);
-      
+     
+     if (errorMessage == 16) {
+       secondRave.play();
+       
+     }
+     
+     if (errorMessage == 17) {
+       secondRave.pause()
+       punchBag.play();
+       
+     }
+      if (errorMessage == 18) {
+       punchBag.pause();
+       husky.play();
+       
+     }
+     
+      if (errorMessage == 19) {
+       husky.pause();
+       
+     }
     }
      
       
