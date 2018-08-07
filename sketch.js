@@ -44,20 +44,9 @@ var newVid;
 
 var millisecond;
 
-
-function setup() {
-  createCanvas(windowWidth, windowHeight);
-  background('#0d02eb');
-  frameRate(15);
-   manImg = manImg2
-   sound.play();
-  
-  
-}
-
-function preload() {
-
-  manImg1 = loadImage('assets/Trash1.gif');
+function preload(){
+  sound = loadSound('assets/DATATRASH.mp3');
+    manImg1 = loadImage('assets/Trash1.gif');
   manImg2 = loadImage('assets/Trash.gif');
  // bg = loadImage('assets/2draw.jpg');
  
@@ -68,6 +57,17 @@ function preload() {
   errorImage = loadImage('assets/finalError1.png');
   errorImage2 = loadImage('assets/finalError2.png');
   errorImage3 = loadImage('assets/finalError3.png');
+}
+
+function setup() {
+  createCanvas(windowWidth, windowHeight);
+  background('#0d02eb');
+  frameRate(15);
+   manImg = manImg2
+   
+   sound.play();
+   
+   
   //errorImage4 = loadImage('assets/POP4.jpg');
   // errorImage.position(-600, -600);
   // errorImage2.position(-600, -600);
@@ -82,11 +82,11 @@ function preload() {
   //secondRave.hide();
  
   
-  sound = loadSound('assets/DATATRASH.mp3');
+  
  
   
   
-  for (var i=0; i<imageFile.length*2; i++){
+  for (var i=0; i<imageFile.length; i++){
   
     // image1 = new imageCreate();
     // image1.position(100,100);
@@ -109,8 +109,12 @@ function preload() {
   secondRave = createVideo('assets/secondRave.mp4');
   var newVid = new videoCreate(secondRave, -600, -600);
   images.push(newVid);
+  punchBag = createVideo('assets/punchBag.mp4');
+  //punchBag.loop();
+  var newVid2 = new videoCreate(punchBag, -600, -600);
+   images.push(newVid2);
   
-  millisecond = millis();
+  
   
   // images.push(errorImage);
   // images.push(errorImage2);
@@ -128,8 +132,15 @@ function preload() {
   
 
   
- 
+  
+  
 }
+
+// function preload() {
+
+
+ 
+// }
 
 function imageCreate(element, x, y) {
   
@@ -179,6 +190,7 @@ function mousePressed() {
     if (imageNum == images.length){
       imageNum = 0;
     }
+    println('image num' + imageNum);
     
     if (errorMessage == images.length + 4) {
       errorMessage = 0;
@@ -263,12 +275,12 @@ function draw() {
   textStyle();
   textFont(fontLucida);
   var dataHeight = 0;
-  var millisecond = millis();
+  millisecond = millis();
   
-  text(millisecond, windowWidth - 250, 50);
+  //text(millisecond, windowWidth - 250, 50);
   var timePassed = millisecond;
   var newTime = 3000;
-  //text (timePassed, windowWidth - 400, windowHeight - 200);
+  text (timePassed, windowWidth - 400, windowHeight - 200);
   
   for (i = 0; i < trashNumber; i ++) {
     
@@ -284,7 +296,36 @@ function draw() {
     if (timePassed >= 2500) {
         text('Unknown error__________________________//', windowWidth * 0.1, dataHeight + spacing);
         newTime += 50
-        var clickCol = 255;
+      //   var clickCol = 255;
+      //   var fillBool = true;
+      //   for (i = 0; i < 30; i ++) {
+      //   if (timePassed >= newTime ){
+      //       text('Click or press enter to continue', windowWidth * 0.1, dataHeight + spacing + 30 );
+      //       if (fillBool === true) {
+      //         fill('#0d02eb');
+      //         fillBool = false;
+      //         } else {
+      //           //println("GONE");
+      //           fill(255);
+      //           fillBool = true;
+      //           }
+                
+      //     clickCol = '#0d02eb';
+      //     newTime += 200;
+      //     i +=1;
+      //     }
+      // }
+   }
+   
+  // if (pressEnter == 1){
+  //   background(0);
+  //   bgVideo.play();
+  //   image(bgVideo, width / 2, height / 2);
+    
+  // }
+  if (millis() > 1000){
+    
+    var clickCol = 255;
         var fillBool = true;
         for (i = 0; i < 30; i ++) {
         if (timePassed >= newTime ){
@@ -303,15 +344,11 @@ function draw() {
           i +=1;
           }
       }
-   }
-   
-  // if (pressEnter == 1){
-  //   background(0);
-  //   bgVideo.play();
-  //   image(bgVideo, width / 2, height / 2);
     
-  // }
+  
+  
   if (errorMessage >= 1){
+    //console.log('LOG!!!');
     image(errorImage, windowWidth/2, windowHeight/2, errorImage.width * errorRatio, errorImage.height * errorRatio);
   } if (errorMessage >= 2) {
     image(errorImage2, windowWidth*0.47, windowHeight*0.45, errorImage2.width * errorRatio, errorImage2.height * errorRatio);
@@ -371,6 +408,7 @@ for (i = 0; i < investMen.length; i++) {
     investMen[i].display();
    
   }
+}
 }
 
 function investMan(x, y, img) {
