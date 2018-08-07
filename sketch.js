@@ -280,7 +280,7 @@ function draw() {
   //text(millisecond, windowWidth - 250, 50);
   var timePassed = millisecond;
   var newTime = 3000;
-  text (timePassed, windowWidth - 400, windowHeight - 200);
+  text (nfc(timePassed, 4), windowWidth - 150, 40);
   
   for (i = 0; i < trashNumber; i ++) {
     
