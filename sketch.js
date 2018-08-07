@@ -40,6 +40,7 @@ var randWidth;
 var randHeight;
 
 var currentErrorNum;
+var newVid;
 
 
 function setup() {
@@ -47,6 +48,8 @@ function setup() {
   background('#0d02eb');
   frameRate(15);
    manImg = manImg2
+   sound.play();
+  
   
 }
 
@@ -55,6 +58,8 @@ function preload() {
   manImg1 = loadImage('assets/Trash1.gif');
   manImg2 = loadImage('assets/Trash.gif');
  // bg = loadImage('assets/2draw.jpg');
+ 
+  fontLucida = loadFont('assets/Lucida_Console_Regular.ttf');
   
   bgImage = loadImage('assets/deathscreen3.jpg');
   //bgVideo = createVideo('assets/bgVideo2.mov');
@@ -66,7 +71,16 @@ function preload() {
   // errorImage2.position(-600, -600);
   // errorImage3.position(-600, -600);
   // errorImage4.position(-600, -600);
+    
+  //secondRave.loop();
+  //secondRave.position(-600, -600);
+  punchBag = createVideo('assets/punchBag.mp4');
+  //punchBag.loop();
+  punchBag.position(-600, -600);
+  //secondRave.hide();
+ 
   
+  sound = loadSound('assets/DATATRASH.mp3');
  
   
   
@@ -90,9 +104,13 @@ function preload() {
     
   }
   
-  images.push(errorImage);
-  images.push(errorImage2);
-  images.push(errorImage3);
+  secondRave = createVideo('assets/secondRave.mp4');
+  var newVid = new videoCreate(secondRave, -600, -600);
+  images.push(newVid);
+  
+  // images.push(errorImage);
+  // images.push(errorImage2);
+  // images.push(errorImage3);
   
   
   //hands = createImg('assets/hand.gif');
@@ -104,16 +122,9 @@ function preload() {
   // paris = createImg('assets/paris.jpg');
   // paris.position(-600, -600);
   
-  // secondRave = createVideo('assets/secondRave.mp4');
-  // secondRave.loop();
-  // secondRave.position(-600, -600);
-  // punchBag = createVideo('assets/punchBag.mp4');
-  // punchBag.loop();
-  // punchBag.position(-600, -600);
-  // //secondRave.hide();
- 
+
   
-  fontLucida = loadFont('assets/Lucida_Console_Regular.ttf');
+ 
 }
 
 function imageCreate(element, x, y) {
@@ -128,12 +139,28 @@ function imageCreate(element, x, y) {
     //windowWidth * random(1), windowHeight * random(1)
     element.position(x,y);
    }
+}
+   
+function videoCreate(element, x, y) {
+  
+  
+  
+  element.position(x,y);
+  
+   this.changePos = function(randX, randY) {
+    x = randX; //windowWidth * random(1);
+    y = randY; //50;
+    //windowWidth * random(1), windowHeight * random(1)
+    element.position(x,y);
+   }
+}
+    
     
    
 
   
   //this.y = -600;
-}
+
 
 function mousePressed() {
 
@@ -149,7 +176,7 @@ function mousePressed() {
       imageNum = 0;
     }
     
-    if (errorMessage == 15) {
+    if (errorMessage == images.length + 4) {
       errorMessage = 0;
     }
     
@@ -176,7 +203,7 @@ function keyPressed(){
       imageNum = 0;
     }
     
-    if (errorMessage == 15) {
+    if (errorMessage == images.length + 4) {
       errorMessage = 0;
     }
     
