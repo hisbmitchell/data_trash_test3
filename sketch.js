@@ -1,4 +1,3 @@
-
 //html5 visible tag
 var manImg1, manImg2;
 var manImgs = [];
@@ -29,7 +28,7 @@ var paris;
 var carSlime;
 var secondRave;
 
-var imageFile = ['assets/finalError1.png', 'assets/key.png', 'assets/science.png', 'assets/germs.png', 'assets/blueShit.gif', 'assets/gloves.gif', 'assets/goo.gif', 'assets/rotating.gif', 'assets/shinyRock.gif', 'assets/stickyPpl.gif', 'assets/hand.gif', 'assets/cutting.gif', 'assets/carSlime.jpg', 'assets/paris.jpg', 'assets/parisdj.jpg', 'assets/mowing.png'];
+var imageFile = ['assets/finalError2.png', 'assets/key.png', 'assets/science.png', 'assets/germs.png', 'assets/blueShit.gif', 'assets/gloves.gif', 'assets/goo.gif', 'assets/rotating.gif', 'assets/shinyRock.gif', 'assets/stickyPpl.gif', 'assets/hand.gif', 'assets/cutting.gif', 'assets/carSlime.jpg', 'assets/paris.jpg', 'assets/parisdj.jpg', 'assets/mowing.png'];
 var randImageFile;
 var imageNum = 0;
 var images = [];
@@ -72,7 +71,7 @@ function setup() {
    
    //sound.play();
    
-   errorImage = loadImage('assets/finalError1.png');
+   errorImage = loadImage('assets/finalError2.png');
    
    errorImage2 = loadImage('assets/finalError2.png');
   errorImage3 = loadImage('assets/finalError3.png');
@@ -391,7 +390,7 @@ function draw() {
     
     }if (errorMessage == 3) {
       
-      currentErrorNum = 6;
+      currentErrorNum = 4;
       images[imageNum].changePos(windowWidth*0.53, windowHeight*0.53);
     
     }if (errorMessage == currentErrorNum) {
