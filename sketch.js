@@ -71,7 +71,7 @@ function setup() {
    
    //sound.play();
    
-   errorImage = loadImage('assets/finalError2.png');
+   errorImage = loadImage('assets/finalError1.png');
    
    errorImage2 = loadImage('assets/finalError2.png');
   errorImage3 = loadImage('assets/finalError3.png');
@@ -378,19 +378,18 @@ function draw() {
   
   
   
-//   if (errorMessage >= 1){
+  if (errorMessage >= 1){
     
-//     //console.log('LOG!!!');
-//     image(errorImage, windowWidth/2, windowHeight/2, errorImage.width * errorRatio, errorImage.height * errorRatio);
-//   } 
-   if (errorMessage >= 1) {
+    //console.log('LOG!!!');
+    image(errorImage2, windowWidth/2, windowHeight/2, errorImage.width * errorRatio, errorImage.height * errorRatio);
+  } if (errorMessage >= 2) {
     image(errorImage2, windowWidth*0.47, windowHeight*0.45, errorImage2.width * errorRatio, errorImage2.height * errorRatio);
-  }if (errorMessage >= 2) {
+  }if (errorMessage >= 3) {
     image(errorImage3, windowWidth*0.53, windowHeight*0.33, errorImage3.width * errorRatio, errorImage3.height * errorRatio);
     
-    }if (errorMessage == 3) {
+    }if (errorMessage == 4) {
       
-      currentErrorNum = 3;
+      currentErrorNum = 4;
       images[imageNum].changePos(windowWidth*0.53, windowHeight*0.53);
     
     }if (errorMessage == currentErrorNum) {
