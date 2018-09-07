@@ -21,6 +21,7 @@ var spacing;
 var trashNumber;
 
 var errorRatio;
+var errorRatio2;
 
 var hands;
 var cutting;
@@ -291,6 +292,7 @@ function draw() {
     spacing = 30;
     trashNumber = 65;
     errorRatio = 3;
+   errorRatio2 = 2;
     
   } else {
     textSize(18);
@@ -381,7 +383,7 @@ function draw() {
   if (errorMessage >= 1){
     
     //console.log('LOG!!!');
-    image(errorImage, windowWidth/2, windowHeight/2, errorImage.width * 1.5, errorImage.height * 1.5);
+    image(errorImage, windowWidth/2, windowHeight/2, errorImage.width * errorRatio2, errorImage.height * errorRatio2);
   } if (errorMessage >= 2) {
     image(errorImage2, windowWidth*0.47, windowHeight*0.45, errorImage2.width * errorRatio, errorImage2.height * errorRatio);
   }if (errorMessage >= 3) {
