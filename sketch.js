@@ -292,13 +292,14 @@ function draw() {
     spacing = 30;
     trashNumber = 65;
     errorRatio = 3;
-   errorRatio2 = 2;
+   errorRatio2 = 1.6;
     
   } else {
     textSize(18);
     spacing = 20;
     trashNumber = 50;
     errorRatio = 1;
+   errorRatio2 = 1;
   }
   textStyle();
   textFont(fontLucida);
