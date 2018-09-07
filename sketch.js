@@ -391,7 +391,7 @@ function draw() {
     
     }if (errorMessage == 3) {
       
-      currentErrorNum = 5;
+      currentErrorNum = 6;
       images[imageNum].changePos(windowWidth*0.53, windowHeight*0.53);
     
     }if (errorMessage == currentErrorNum) {
@@ -400,23 +400,23 @@ function draw() {
      randY = windowHeight * randHeight;
      images[imageNum].changePos(randX, randY);
      
-     if (errorMessage == 15) {
+     if (errorMessage == 16) {
        secondRave.play();
        
      }
      
-     if (errorMessage == 16) {
+     if (errorMessage == 17) {
        secondRave.pause()
        punchBag.play();
        
      }
-      if (errorMessage == 17) {
+      if (errorMessage == 18) {
        punchBag.pause();
        husky.play();
        
      }
      
-      if (errorMessage == 18) {
+      if (errorMessage == 19) {
        husky.pause();
        
      }
