@@ -390,7 +390,7 @@ function draw() {
     
     }if (errorMessage == 3) {
       
-      currentErrorNum = 4;
+      currentErrorNum = 3;
       images[imageNum].changePos(windowWidth*0.53, windowHeight*0.53);
     
     }if (errorMessage == currentErrorNum) {
