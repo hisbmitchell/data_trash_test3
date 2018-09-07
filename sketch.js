@@ -379,18 +379,19 @@ function draw() {
   
   
   
-  if (errorMessage >= 1){
+//   if (errorMessage >= 1){
     
-    //console.log('LOG!!!');
-    image(errorImage, windowWidth/2, windowHeight/2, errorImage.width * errorRatio, errorImage.height * errorRatio);
-  } if (errorMessage >= 2) {
+//     //console.log('LOG!!!');
+//     image(errorImage, windowWidth/2, windowHeight/2, errorImage.width * errorRatio, errorImage.height * errorRatio);
+//   } 
+   if (errorMessage >= 1) {
     image(errorImage2, windowWidth*0.47, windowHeight*0.45, errorImage2.width * errorRatio, errorImage2.height * errorRatio);
-  }if (errorMessage >= 3) {
+  }if (errorMessage >= 2) {
     image(errorImage3, windowWidth*0.53, windowHeight*0.33, errorImage3.width * errorRatio, errorImage3.height * errorRatio);
     
-    }if (errorMessage == 4) {
+    }if (errorMessage == 3) {
       
-      currentErrorNum = 4;
+      currentErrorNum = 5;
       images[imageNum].changePos(windowWidth*0.53, windowHeight*0.53);
     
     }if (errorMessage == currentErrorNum) {
@@ -399,23 +400,23 @@ function draw() {
      randY = windowHeight * randHeight;
      images[imageNum].changePos(randX, randY);
      
-     if (errorMessage == 16) {
+     if (errorMessage == 15) {
        secondRave.play();
        
      }
      
-     if (errorMessage == 17) {
+     if (errorMessage == 16) {
        secondRave.pause()
        punchBag.play();
        
      }
-      if (errorMessage == 18) {
+      if (errorMessage == 17) {
        punchBag.pause();
        husky.play();
        
      }
      
-      if (errorMessage == 19) {
+      if (errorMessage == 18) {
        husky.pause();
        
      }
