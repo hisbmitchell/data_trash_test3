@@ -72,7 +72,7 @@ function setup() {
    
    //sound.play();
    
-   errorImage = loadImage('assets/finalError1.jpg');
+   errorImage = loadImage('assets/finalError1.png');
    
    errorImage2 = loadImage('assets/finalError2.png');
   errorImage3 = loadImage('assets/finalError3.png');
