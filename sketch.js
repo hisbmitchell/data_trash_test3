@@ -384,7 +384,7 @@ function draw() {
   if (errorMessage >= 1){
     
     //console.log('LOG!!!');
-    image(errorImage, windowWidth/2, windowHeight/2, errorImage.width * errorRatio2, errorImage.height * errorRatio2);
+    image(errorImage, windowWidth/2, windowHeight/2, errorImage.width * errorRatio, errorImage.height * errorRatio);
   } if (errorMessage >= 2) {
     image(errorImage2, windowWidth*0.47, windowHeight*0.45, errorImage2.width * errorRatio, errorImage2.height * errorRatio);
   }if (errorMessage >= 3) {
